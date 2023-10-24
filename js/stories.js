@@ -30,14 +30,16 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
 
   return $(`
       <li id="${story.storyId}">
-      ${showDeleteBtn ? getDeleteBtnHTML() : ""}
-        ${showStar ? getStarHTML(story, currentUser) : ""}
-        <a href="${story.url}" target="a_blank" class="story-link">
-          ${story.title}
-        </a>
-        <small class="story-hostname">(${hostName})</small><br>
-        <small class="story-author">by ${story.author}</small><br>
-        <small class="story-user">posted by ${story.username}</small>
+        <div>
+          ${showDeleteBtn ? getDeleteBtnHTML() : ""}
+          ${showStar ? getStarHTML(story, currentUser) : ""}
+          <a href="${story.url}" target="a_blank" class="story-link">
+            ${story.title}
+          </a>
+          <small class="story-hostname">(${hostName})</small><br>
+          <small class="story-author">by ${story.author}</small><br>
+          <small class="story-user">posted by ${story.username}</small>
+        </div>
       </li>
     `);
 }

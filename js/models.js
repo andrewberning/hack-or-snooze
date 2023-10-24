@@ -116,7 +116,14 @@ class User {
    *   - token
    */
 
-  constructor({ username, name, createdAt, favorites = [], ownStories = [] }, token) {
+  constructor({
+    username,
+    name,
+    createdAt,
+    favorites = [],
+    ownStories = []
+  },
+    token) {
     this.username = username;
     this.name = name;
     this.createdAt = createdAt;
