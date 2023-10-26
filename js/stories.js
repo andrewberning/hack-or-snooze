@@ -15,8 +15,10 @@ async function getAndShowStoriesOnStart() {
 /**
  * A render method to render HTML for an individual Story instance
  * - story: an instance of Story
- *
+ * - IMPLEMENTED: showDeleteBtn = false parameter
+ * 
  * Returns the markup for the story.
+ * - IMPLEMENTED: showDeleteBtn & showStar conditionals inside template literal to show or not to show markup.
  */
 
 function generateStoryMarkup(story, showDeleteBtn = false) {
@@ -44,6 +46,7 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
     `);
 }
 
+// ** IMPLEMENTED ** 
 /** Make delete button HTML for story */
 function getDeleteBtnHTML() {
   return `
@@ -52,6 +55,7 @@ function getDeleteBtnHTML() {
         </span>`;
 }
 
+// ** IMPLEMENTED **
 /** Make favorite/not-favorite star for story */
 
 function getStarHTML(story, user) {
@@ -80,6 +84,7 @@ function putStoriesOnPage() {
   $allStoriesList.show();
 }
 
+// ** IMPLEMENTED **
 /** Handle deleting a story. */
 
 async function deleteStory(evt) {
@@ -93,6 +98,7 @@ async function deleteStory(evt) {
 
 $ownStories.on("click", ".trash-can", deleteStory);
 
+// ** IMPLEMENTED **
 /** Handle submitting submit-form for new story */
 
 async function submitNewStory(evt) {
@@ -117,6 +123,7 @@ async function submitNewStory(evt) {
 }
 $submitForm.on("submit", submitNewStory);
 
+// ** IMPLEMENTED **
 /******************************************************************************
  * Functionality for list of user's own stories
  */
@@ -141,6 +148,7 @@ function putUserStoriesOnPage() {
   $ownStories.show();
 }
 
+// ** IMPLEMENTED **
 /******************************************************************************
  * Functionality for favorites list and starr/un-starr a story
  */
@@ -166,6 +174,7 @@ function putFavoritesListOnPage() {
   $favoritedStoriesList.show();
 }
 
+// ** IMPLEMENTED **
 /** Handle favorite/un-favorite a story */
 
 async function toggleStoryFavorite(evt) {

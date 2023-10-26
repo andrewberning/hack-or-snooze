@@ -110,22 +110,27 @@ function saveUserCredentialsInLocalStorage() {
 function updateUIOnUserLogin() {
   console.debug("updateUIOnUserLogin");
   hidePageComponents();
-  putStoriesOnPage();
+
+  // re-display stories so that favorite stars can appear
+  putStoriesOnPage(); // ** IMPLEMENTED **
   $allStoriesList.show();
+
   updateNavOnLogin();
-  generateUserProfile();
-  $storiesContainer.show();
+  generateUserProfile(); // ** IMPLEMENTED **
 }
 
+// ** IMPLEMENTED **
 /** Show a "user profile" part of page built from the current user's info. */
 
 function generateUserProfile() {
   $("#profile-name").text(currentUser.name);
   $("#profile-username").text(currentUser.username);
-  $("#profile-account-date").text(formatDate(currentUser.createdAt));
+  $("#profile-account-date").text(_formatDate(currentUser.createdAt));
 }
 
-function formatDate(date) {
+// ** IMPLEMENTED **
+// This is a helper function to format a date.
+function _formatDate(date) {
   const newDate = new Date(date);
   let day = newDate.getDate();
   let month = newDate.getMonth();
@@ -137,5 +142,5 @@ function formatDate(date) {
   if (month < 10) {
     month = '0' + month;
   }
-  return `${day}/${month}/${year}`;
+  return `${month}/${day}/${year}`;
 };

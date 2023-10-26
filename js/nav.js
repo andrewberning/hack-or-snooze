@@ -14,17 +14,6 @@ function navAllStories(evt) {
 
 $body.on("click", "#nav-all", navAllStories);
 
-/** Show story submit form on click "submit" */
-
-function navSubmitStoryClick(evt) {
-  // console.debug("navSubmitStoryClick", evt);
-  hidePageComponents();
-  $allStoriesList.show();
-  $submitForm.slideDown("slow");
-}
-
-$navSubmitStory.on("click", navSubmitStoryClick);
-
 /** Show login/signup on click on "login" */
 
 function navLoginClick(evt) {
@@ -32,7 +21,6 @@ function navLoginClick(evt) {
   hidePageComponents();
   $loginForm.show();
   $signupForm.show();
-  $storiesContainer.hide();
 }
 
 $navLogin.on("click", navLoginClick);
@@ -47,6 +35,19 @@ function updateNavOnLogin() {
   $navUserProfile.text(`${currentUser.username}`).show();
 }
 
+// ** IMPLEMENTED **
+/** Show story submit form on click "submit" */
+
+function navSubmitStoryClick(evt) {
+  // console.debug("navSubmitStoryClick", evt);
+  hidePageComponents();
+  $allStoriesList.show();
+  $submitForm.slideDown("slow");
+}
+
+$navSubmitStory.on("click", navSubmitStoryClick);
+
+// ** IMPLEMENTED **
 /** Show favorite stories on click on "favorites" */
 
 function navFavoritesClick(evt) {
@@ -56,6 +57,7 @@ function navFavoritesClick(evt) {
 
 $body.on("click", "#nav-favorites", navFavoritesClick);
 
+// ** IMPLEMENTED **
 /** Show My Stories on clicking "my stories" */
 
 function navMyStories(evt) {
@@ -66,6 +68,7 @@ function navMyStories(evt) {
 
 $body.on("click", "#nav-my-stories", navMyStories);
 
+// ** IMPLEMENTED **
 /** Hide everything but profile on click on "profile" */
 
 function navProfileClick(evt) {

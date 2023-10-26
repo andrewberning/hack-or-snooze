@@ -6,29 +6,36 @@ const $body = $("body");
 
 const $storiesLoadingMsg = $("#stories-loading-msg");
 const $allStoriesList = $("#all-stories-list");
+// get favorited and own stories list
 const $favoritedStoriesList = $("#favorited-stories-list");
 const $ownStories = $("#my-stories");
-const $storiesContainer = $("#stories-container")
 
-// all the storiesLists
+// get all of the storiesLists
 const $storiesLists = $(".stories-list");
 
 const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
+
+// get submit form for new story
 const $submitForm = $("#submit-form");
 
 const $navLogin = $("#nav-login");
-const $navSubmitStory = $("#nav-submit-story");
 const $navUserProfile = $("#nav-user-profile");
 const $navLogOut = $("#nav-logout");
 
-// userProfile
+// get nav-submit-story anchor tag
+const $navSubmitStory = $("#nav-submit-story");
+
+// get user-profile section
 const $userProfile = $("#user-profile");
 
 /** To make it easier for individual components to show just themselves, this
  * is a useful function that hides pretty much everything on the page. After
  * calling this, individual components can re-show just what they want.
  */
+
+// removed $allStoriesList and replace it with $storiesLists to hidePageComponents function to cover all lists. 
+// also added $submitForm adn $userProfile
 
 function hidePageComponents() {
   const components = [

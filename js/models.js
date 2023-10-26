@@ -24,6 +24,7 @@ class Story {
   /** Parses hostname out of URL and returns it. */
 
   getHostName() {
+    // ** IMPLEMENTED **
     return new URL(this.url).host;
   }
 }
@@ -72,7 +73,7 @@ class StoryList {
    */
 
   async addStory(user, { title, author, url }) {
-    // UNIMPLEMENTED: complete this function!
+    // ** IMPLEMENTED **
     const token = user.loginToken;
     const response = await axios({
       url: `${BASE_URL}/stories`,
@@ -87,8 +88,12 @@ class StoryList {
     return story;
   }
 
+  // ** IMPLEMENTED **
+  /** Removes story data from API and each of the stories lists.
+   * - user: the current User instance
+   * - storyId: the ID of the story you want to remove
+    */
   async removeStory(user, storyId) {
-    // UNIMPLEMENTED: complete this function!
     const token = user.loginToken;
     await axios({
       url: `${BASE_URL}/stories/${storyId}`,
@@ -96,10 +101,8 @@ class StoryList {
       data: { token },
     });
 
-    // filter out the story whose ID we are removing
     this.stories = this.stories.filter(s => s.storyId !== storyId);
 
-    // do the same thing for the user's list of stories & their favorites
     user.ownStories = user.ownStories.filter(s => s.storyId !== storyId);
     user.favorites = user.favorites.filter(s => s.storyId !== storyId);
   }
@@ -221,6 +224,7 @@ class User {
     }
   }
 
+  // ** IMPLEMENTED **
   /** Add a story to the list of user favorites and update the API
    * - story: a Story instance to add to favorites
    */
@@ -229,6 +233,7 @@ class User {
     await this._addOrRemoveFavorite("add", story);
   }
 
+  // ** IMPLEMENTED **
   /** Remove a story to the list of user favorites and update the API
    * - story: the Story instance to remove from favorites
    */
@@ -238,6 +243,7 @@ class User {
     await this._addOrRemoveFavorite("remove", story);
   }
 
+  // ** IMPLEMENTED **
   /** Update API with favorite/not-favorite.
    *   - action: "add" or "remove"
    *   - story: Story instance to make favorite / not favorite
@@ -253,6 +259,7 @@ class User {
     });
   }
 
+  // ** IMPLEMENTED **
   /** Return true/false if given Story instance is a favorite of this user. */
 
   isFavorite(story) {
